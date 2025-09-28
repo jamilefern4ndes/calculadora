@@ -1,0 +1,82 @@
+
+*{
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+section.calculator{
+    background-color: rgb(92, 92, 92);
+    border: 1px solid gray;
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    display: grid;
+    grid-template: 50px 30px 1fr 50px/ repeat(3, 1fr) 50px;
+}
+
+
+.calculator button{
+    border: 1px solid rgba(0, 0, 0, 0.042);
+    border-radius: 2px;
+    padding: 10px;
+    width: 100%;
+    min-height: 50px;
+}
+    button:active{
+        transform: scale(0.98);
+    }
+.calculator p{
+    text-align: center;
+    padding: 5px;
+    grid-area: 2/1/span 1/ span 4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orange;
+}
+div#screen{
+    grid-area: 1/1/span 1/span 4;
+    background-color: rgb(52, 52, 52);
+    border-radius: 5px;
+}
+div#numbers{
+    grid-area: 3/1/span 1/span 3;
+    display: grid;
+    grid-template: repeat(3, 1fr)/ repeat(3,1fr);
+}
+    .number{
+        background-color: gray;
+        color: white;
+    }
+
+div#operations{
+    grid-area: 3/4/span 1/span 1;
+}
+    .operation{
+        background-color: gray;
+        color: orange;
+    }
+
+div#actions{
+    grid-area: 4/1/span 1/span 2;
+    display: flex;
+}
+    button#clean{
+        color: orange;
+    }
+div#btnEqual{
+    grid-area: 4/3/span 1/ span 2;
+}
+    #equal{
+        background-color: orange;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+
