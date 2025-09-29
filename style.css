@@ -1,82 +1,147 @@
-
 *{
     margin: 0; padding: 0; box-sizing: border-box;
+}
+:root{
+    --cor-primária: rgb(33, 37, 41);    
+    --cor-secundária: rgb(248, 249, 250);
+    --cor-terciária: rgb(108, 117, 125);  
+    --cor-base:  rgb(233, 236, 239);       
 }
 main{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--cor-primária);
 }
 
-
 section.calculator{
-    background-color: rgb(92, 92, 92);
-    border: 1px solid gray;
+    background-color: var(--cor-base);
     padding: 10px;
-    width: 250px;
     border-radius: 5px;
     display: grid;
     grid-template: 50px 30px 1fr 50px/ repeat(3, 1fr) 50px;
+    gap: 1px;
 }
-
 
 .calculator button{
-    border: 1px solid rgba(0, 0, 0, 0.042);
-    border-radius: 2px;
+    background-color: var(--cor-terciária);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
     padding: 10px;
     width: 100%;
+    min-width: 55px;
     min-height: 50px;
+    color: var(--cor-primária);
+    font-family: inherit;
+    cursor: pointer;
 }
-    button:active{
-        transform: scale(0.98);
-    }
+button:active{
+    transform: scale(0.98);
+}
+button:hover{
+    border: 1px solid rgba(33, 37, 41, 0.5);
+    background-color: rgb(150, 158, 165);
+}
 .calculator p{
     text-align: center;
     padding: 5px;
     grid-area: 2/1/span 1/ span 4;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: orange;
+    color: var(--cor-primária);
 }
 div#screen{
     grid-area: 1/1/span 1/span 4;
-    background-color: rgb(52, 52, 52);
+    background-color: var(--cor-primária);
     border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    font-size: 17px;
+    color: var(--cor-secundária);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
 }
 div#numbers{
     grid-area: 3/1/span 1/span 3;
     display: grid;
     grid-template: repeat(3, 1fr)/ repeat(3,1fr);
 }
-    .number{
-        background-color: gray;
-        color: white;
-    }
+.number{
+    background-color: rgb(120, 130, 140);
+    color: var(--cor-secundária);
+}
 
 div#operations{
     grid-area: 3/4/span 1/span 1;
 }
-    .operation{
-        background-color: gray;
-        color: orange;
-    }
+.operation{
+    background-color: rgb(160, 170, 180);
+    color: var(--cor-primária);
+}
 
 div#actions{
     grid-area: 4/1/span 1/span 2;
     display: flex;
 }
-    button#clean{
-        color: orange;
-    }
+button#clean{
+    color: var(--cor-primária);
+    background-color: var(--cor-terciária);
+}
+
 div#btnEqual{
     grid-area: 4/3/span 1/ span 2;
 }
-    #equal{
-        background-color: orange;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+#equal{
+    background-color: var(--cor-primária);
+    color: var(--cor-secundária);
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Adaptação para telas maiores e responsividade */
+section.calculator {
+    max-width: 500px;
+    width: 90vw;
+    padding: 20px;
+    border-radius: 10px;
+    grid-template: 70px 40px 1fr 60px / repeat(3, 1fr) 70px;
+}
+
+/* Tela */
+div#screen {
+    font-size: 2rem;
+    padding: 10px;
+}
+
+/* Botões */
+.calculator button {
+    min-width: 70px;
+    min-height: 60px;
+    font-size: 1.5rem;
+}
+
+/* Botão de igual */
+#equal {
+    font-size: 2rem;
+}
+
+/* Responsividade extra */
+@media (max-width: 600px) {
+    section.calculator {
+        grid-template: 60px 30px 1fr 50px / repeat(3, 1fr) 60px;
+        padding: 15px;
     }
-
-
+    .calculator button {
+        font-size: 1.2rem;
+        min-height: 50px;
+    }
+    div#screen {
+        font-size: 1.5rem;
+    }
+    #equal {
+        font-size: 1.6rem;
+    }
+}
